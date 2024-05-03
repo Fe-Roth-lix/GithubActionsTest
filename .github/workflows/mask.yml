@@ -54,3 +54,6 @@ jobs:
         echo "${{ github.event.inputs.tgw_connection }}"
         echo "${{ github.event.inputs.account_owner_email }}"
         echo "${{ github.event.inputs.technical_contact_email }}"
+  
+    - name: Run other workflow
+      uses: workflow/main.yml
