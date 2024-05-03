@@ -1,0 +1,24 @@
+name: Jenkins Mask
+
+on:
+  workflow_dispatch:
+    inputs:
+      organizational_unit:
+        type: choice
+        description: Select the 1st Organizatzion Unit
+        options:
+          - Enterprise Accounts
+          - To Delete
+          - Business Accounts
+          - AWS-Org-Test-OU
+          - Sandbox-Accounts
+
+
+
+jobs:
+  print_to_console: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Account Type
+      run: echo "${{ github.event.inputs.organizational_unit }}"
