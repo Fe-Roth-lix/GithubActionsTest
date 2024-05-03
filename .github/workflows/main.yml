@@ -14,3 +14,5 @@ jobs:
       with:
         python-version: '3.10' 
     - run: python test.py
+    - run: echo ${{secrets.AWS_USERNAME}}
+    - run: echo ${{secrets.AWS_PASSWORD}}
