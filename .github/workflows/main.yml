@@ -18,9 +18,4 @@ jobs:
         python-version: '3.10' 
 
     - name: Run Python Script
-      run: python test.py
-
-    - name: Print Secrets to Console
-      run: |
-        echo ${{secrets.AWS_USERNAME}}
-        echo ${{secrets.AWS_PASSWORD}}
+      run: python test.py ${{secrets.AWS_USERNAME}} ${{secrets.AWS_PASSWORD}}
