@@ -56,4 +56,4 @@ jobs:
         echo "${{ github.event.inputs.technical_contact_email }}"
   
     - name: Run other workflow
-      uses: workflow/main.yml
+      uses: ./.github/workflows/main.yml
