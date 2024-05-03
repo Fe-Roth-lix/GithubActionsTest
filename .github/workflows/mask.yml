@@ -12,13 +12,45 @@ on:
           - Business Accounts
           - AWS-Org-Test-OU
           - Sandbox-Accounts
+      
+      app_environment:
+        type: choice
+        description: This selection is used for the AWS Account Name
+        options:
+          - dev
+          - stage
+          - prod
 
+      app_name:
+        required: true
+      
+      cidr_block:
+        required: true
+        description: Enter a free IP-Address Range, for the first default VPC in the new AWS Account
+      
+      tgw_connection:
+        type: boolean
+        description: check yes if a connection to TGW should be enabled
 
+      account_owner_email:
+        required: true
+        description: Account Owner Email String
+
+      technical_contact_email:
+        required: true
+        description: Technical Contact Email String
 
 jobs:
   print_to_console: 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print Account Type
-      run: echo "${{ github.event.inputs.organizational_unit }}"
+    - name: Print all Vars
+      run: |
+        echo "${{ github.event.inputs.organizational_unit }}"
+        echo "${{ github.event.inputs.app_environment }}"
+        echo "${{ github.event.inputs.app_name }}"
+        echo "${{ github.event.inputs.cidr_block }}"
+        echo "${{ github.event.inputs.tgw_connection }}"
+        echo "${{ github.event.inputs.account_owner_email }}"
+        echo "${{ github.event.inputs.technical_contact_email }}"
